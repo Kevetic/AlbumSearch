@@ -14,10 +14,6 @@ form.addEventListener("submit", function(event) {
     event.preventDefault()
 
 })
-showResults.addEventListener("click", function (click) {
-    if ( click.target && click.target.nodeName === "IMG")
-    console.log("40")
-})
 
 function getData() {
     let ARTIST_NAME = document.querySelector("#user-input").value

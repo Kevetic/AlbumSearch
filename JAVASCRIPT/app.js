@@ -9,7 +9,6 @@ let splitScreen = document.querySelector(".search")
 // window.onload = emptyInput()
 form.addEventListener("submit", function(event) {
     flexScreen()
-    getData()
     // console.log(input.value)
     event.preventDefault()
 
@@ -43,10 +42,14 @@ function getData() {
 function flexScreen(){
     spinner.className = "showSpinner";
     setTimeout(() => {
-        console.log('spinner test')
-    spinner.className = spinner.className.replace("showSpinner", "");
+    console.log('spinner test')
+    spinner.classList.add('show');
+    // ...
+    spinner.classList.remove('show');
+    getData()
   }, 3000);
     splitScreen.classList.remove('split')
+
 }
 
 // function loadSpinner() {

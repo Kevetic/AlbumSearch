@@ -105,7 +105,7 @@ i.fas.fa-search {
   }
   
   #spinner.show {
-    visibility: visible;
+    visibility: visible !important;
   }
 
   .split {

@@ -93,7 +93,7 @@ i.fas.fa-search {
     right: 0;
     margin: auto;
     animation: spin 1s infinite linear;
-    transition: 3s;
+    transition: 2s;
   }
   
   @keyframes spin {
@@ -104,7 +104,7 @@ i.fas.fa-search {
     }
   }
   
-  #spinner.show {
+  .showSpinner {
     visibility: visible !important;
   }
 

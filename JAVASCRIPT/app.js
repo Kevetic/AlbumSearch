@@ -40,14 +40,12 @@ function getData() {
     })
 }
 function flexScreen(){
-    spinner.className = "showSpinner";
+    spinner.classList.add('showSpinner');
     setTimeout(() => {
     console.log('spinner test')
-    spinner.classList.add('show');
-    // ...
-    spinner.classList.remove('show');
+    spinner.classList.remove('showSpinner');
     getData()
-  }, 3000);
+  }, 1000);
     splitScreen.classList.remove('split')
 
 }

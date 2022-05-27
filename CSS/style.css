@@ -14,6 +14,7 @@ header {
 form {
     background-color: beige;
     margin: 10px;
+    display: flex;
 }
 input {
     background-color: white;
@@ -38,8 +39,9 @@ i.fas.fa-search {
     background-color: transparent;
     font-size: 25px;
     align-items: center;
-    top: 5px;
     position: relative;
+    cursor: pointer;
+
 }
 
 .split-screen{
@@ -81,19 +83,17 @@ i.fas.fa-search {
     visibility: hidden;
     width: 80px;
     height: 80px;
-
     border: 2px solid #f3f3f3;
     border-top:3px solid #f25a41;
     border-radius: 100%;
-  
     position: absolute;
     top:0;
     bottom:0;
     left:0;
     right: 0;
     margin: auto;
-  
     animation: spin 1s infinite linear;
+    transition: 3s;
   }
   
   @keyframes spin {
@@ -116,20 +116,19 @@ i.fas.fa-search {
     left: 12%;
   }
 
-  @media only screen and (max-width: 1050px) {
+@media only screen and (max-width: 1050px) {
     .results {
         width: 80%;
+        display: block !important;
     }
     .search {
         width: 30%;
     }
-  }
-  
-  @media only screen and (max-width: 700px) {
-    .results {
-        display: block;
-    }
     .album-results {
-        width: 100%;
+        width: auto;
+        margin: 10px;
     }
-  }
+    .split {
+        width: 80% !important;
+    }
+}

@@ -9,9 +9,17 @@ let splitScreen = document.querySelector(".search")
 // window.onload = emptyInput()
 form.addEventListener("submit", function(event) {
     flexScreen()
-    loadSpinner()
+    getData()
     // console.log(input.value)
     event.preventDefault()
+
+})
+showResults.addEventListener("click", function (click) {
+    if ( click.target && click.target.nodeName === "IMG")
+    console.log("40")
+})
+
+function getData() {
     let ARTIST_NAME = document.querySelector("#user-input").value
     fetch(`https://itunes.apple.com/search?term=${ARTIST_NAME}&media=music&entity=album&attribute=artistTerm&limit=200`)
     .then (function (data){
@@ -35,19 +43,19 @@ form.addEventListener("submit", function(event) {
             showResults.insertAdjacentHTML("beforeEnd", render)
         }
     })
-})
-showResults.addEventListener("click", function (click) {
-    if ( click.target && click.target.nodeName === "IMG")
-    console.log("40")
-})
-
+}
 function flexScreen(){
+    spinner.className = "showSpinner";
+    setTimeout(() => {
+        console.log('spinner test')
+    spinner.className = spinner.className.replace("showSpinner", "");
+  }, 3000);
     splitScreen.classList.remove('split')
 }
 
-function loadSpinner() {
-    spinner.className = "showSpinner";
-    setTimeout(() => {
-    spinner.className = spinner.className.replace("showSpinner", "");
-  }, 1000);
-}
+// function loadSpinner() {
+//     spinner.className = "showSpinner";
+//     setTimeout(() => {
+//     spinner.className = spinner.className.replace("showSpinner", "");
+//   }, 1000);
+// }

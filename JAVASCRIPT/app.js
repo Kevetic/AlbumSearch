@@ -6,12 +6,9 @@ let spinner = document.getElementById("spinner");
 let splitScreen = document.querySelector(".search")
 
 
-// window.onload = emptyInput()
 form.addEventListener("submit", function(event) {
     flexScreen()
-    // console.log(input.value)
     event.preventDefault()
-
 })
 
 function getData() {
@@ -50,9 +47,3 @@ function flexScreen(){
 
 }
 
-// function loadSpinner() {
-//     spinner.className = "showSpinner";
-//     setTimeout(() => {
-//     spinner.className = spinner.className.replace("showSpinner", "");
-//   }, 1000);
-// }

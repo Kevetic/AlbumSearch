@@ -8,6 +8,7 @@ let albumnDetails = document.querySelector('.albumn-details')
 let searchHeight = document.getElementById('search-side')
 addTenResults.classList.add('hidden')
 searchHeight.classList.remove('searchheight')
+albumnDetails.classList.add('hidden')
 let limit = 20;
 let searchTerm = "";
 let results = [];
@@ -41,6 +42,7 @@ function displayResults() {
     showResults.insertAdjacentHTML("beforeEnd", render);
     showResults.lastElementChild.addEventListener('click', function(){
         searchHeight.classList.add('searchHeight')
+        albumnDetails.classList.remove('hidden')
         albumnDetails.innerHTML = `
         <img src="${img}" alt="">
         <p>${name}</p>

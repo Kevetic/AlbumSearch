@@ -4,22 +4,32 @@ let input = document.querySelector(".user-input")
 let button = document.querySelector(".search-btn")
 let spinner = document.getElementById("spinner");
 let splitScreen = document.querySelector(".search")
+let resultCount = document.querySelector('.result-count')
+let addTenResults = document.querySelector('.addTen')
 
-
+// window.onload = emptyInput()
 form.addEventListener("submit", function(event) {
     flexScreen()
+    // console.log(input.value)
     event.preventDefault()
+
 })
 
 function getData() {
-    let ARTIST_NAME = document.querySelector("#user-input").value
-    fetch(`https://itunes.apple.com/search?term=${ARTIST_NAME}&media=music&entity=album&attribute=artistTerm&limit=200`)
+    let searchTerm = document.querySelector("#user-input").value
+    fetch(`https://itunes.apple.com/search?term=${searchTerm}&media=music&entity=album&attribute=artistTerm&limit=200`)
     .then (function (data){
         return data.json()
     })
     .then (function(json) {
-        console.log(json)  
-        
+        let count = json.resultCount
+        let newArray = json.results
+        console.log(newArray)
+        showResults.textContent = ""
+        resultCount.innerHTML = `
+
+        <p>Search Result: ${count} for ${searchTerm}</p>
+        `
         for (var i = 0; i < json.results.length; i++) {
             let img = json.results[i].artworkUrl100
             let songTitle = json.results[i].collectionName
@@ -33,6 +43,7 @@ function getData() {
             </div>
             `
             showResults.insertAdjacentHTML("beforeEnd", render)
+            spliceFunc(newArray)
         }
     })
 }
@@ -47,3 +58,13 @@ function flexScreen(){
 
 }
 
+// limit the search to 20
+// button + 10
+
+function spliceFunc(data) {
+    data.slice(0, 5)
+
+    addTenResults.addEventListener('click', function(){
+        console.log('add ten')
+    })
+}

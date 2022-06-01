@@ -6,7 +6,7 @@ let resultCount = document.querySelector(".result-count");
 let addTenResults = document.querySelector(".addTen");
 let albumnDetails = document.querySelector('.albumn-details')
 addTenResults.classList.add('hidden')
-let limit = 10;
+let limit = 20;
 let searchTerm = "";
 let results = [];
 
@@ -48,7 +48,7 @@ function displayResults() {
 
 function getData() {
   results = [];
-  limit = 10;
+  limit = 20;
   searchTerm = document.querySelector("#user-input").value;
   fetch(
     `https://itunes.apple.com/search?term=${searchTerm}&media=music&entity=album&attribute=artistTerm&limit=200`

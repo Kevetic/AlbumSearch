@@ -5,7 +5,9 @@ let splitScreen = document.querySelector(".search");
 let resultCount = document.querySelector(".result-count");
 let addTenResults = document.querySelector(".addTen");
 let albumnDetails = document.querySelector('.albumn-details')
+let searchHeight = document.getElementById('search-side')
 addTenResults.classList.add('hidden')
+searchHeight.classList.remove('searchheight')
 let limit = 20;
 let searchTerm = "";
 let results = [];
@@ -27,6 +29,7 @@ function displayResults() {
     let img = results[i].artworkUrl100;
     let songTitle = results[i].collectionName;
     let name = results[i].artistName;
+    let data = results[i]
 
     let render = `
         <div class = "album-results">
@@ -37,10 +40,16 @@ function displayResults() {
         `;
     showResults.insertAdjacentHTML("beforeEnd", render);
     showResults.lastElementChild.addEventListener('click', function(){
+        searchHeight.classList.add('searchHeight')
         albumnDetails.innerHTML = `
         <img src="${img}" alt="">
         <p>${name}</p>
         <p>${songTitle}</p>
+        <p>Explicit: ${data.collectionExplicitness}</p>
+        <p>Country: ${data.country}</p>
+        <p>Genre: ${data.primaryGenreName}</p>
+        <p>Track Count: ${data.trackCount}</p>
+        <p>Cost: $${data.collectionPrice}</p>
         `
     }) 
   }
@@ -58,6 +67,7 @@ function getData() {
     })
     .then(function (json) {
       results = json.results;
+      console.log(results)
       displayResults();
     })
     .catch(function (e) {

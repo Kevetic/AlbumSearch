@@ -139,6 +139,9 @@ i.fas.fa-search {
     right: 50%;
     left: 12%;
   }
+  .searchHeight {
+    min-height: 500px;
+  }
 
 @media only screen and (max-width: 1050px) {
     .results {
